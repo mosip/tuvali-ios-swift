@@ -178,7 +178,7 @@ enum SemaphoreMarker: Int {
     case RequestReport = 1
     case Error = 2
 }
-
+@available(iOS 13.0, *)
 extension TransferHandler: PeripheralCommunicatorProtocol {
     func onTransmissionReportRequest(data: Data?) {
         if let data {

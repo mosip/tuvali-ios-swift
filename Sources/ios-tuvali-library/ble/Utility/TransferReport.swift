@@ -1,4 +1,5 @@
 import Foundation
+import os
 
 /*
  +---------+------------------+---------------------+-------------------+-------------------+-------------------+
@@ -34,7 +35,7 @@ class TransferReport  {
                     missingSequences?.append(Util.networkOrderedByteArrayToInt(num: missingChunkSlice))
                     missingChunksData = missingChunksData.dropFirst(2)
                 }
-                //os_log(.debug,"%{public}@", missingSequences)
+                os_log(.debug,"%{public}@", missingSequences)
             }
         } else {
             type = .MISSING_CHUNKS

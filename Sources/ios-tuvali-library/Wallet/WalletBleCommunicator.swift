@@ -18,10 +18,6 @@ class WalletBleCommunicator: NSObject {
         central = Central()
     }
 
-    @objc(getModuleName:withRejecter:)
-    func getModuleName(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
-        resolve(["iOS Wallet"])
-    }
 
     func setAdvIdentifier(identifier: Data) {
         self.advIdentifier = identifier
@@ -48,7 +44,7 @@ class WalletBleCommunicator: NSObject {
 
     func isSameAdvIdentifier(advertisementPayload: Data) -> Bool {
         guard let advIdentifier = advIdentifier else {
-            os_log(.info, "Found NO ADV Identifier")
+            
             return false
         }
         let advIdentifierData = advIdentifier
@@ -105,7 +101,7 @@ class WalletBleCommunicator: NSObject {
     func writeToIdentifyRequest() {
         let publicKey = self.cryptoBox.getPublicKey()
         guard let verifierPublicKey = self.verifierPublicKey else {
-            os_log(.info, "Write Identify - Found NO KEY")
+       
             return
         }
         secretTranslator = (cryptoBox.buildSecretsTranslator(verifierPublicKey: verifierPublicKey))

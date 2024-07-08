@@ -1,4 +1,4 @@
 import Foundation
 
-struct ConnectedEvent: Event {
+public struct ConnectedEvent: Event {
 }

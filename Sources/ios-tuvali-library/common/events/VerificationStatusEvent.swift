@@ -1,9 +1,9 @@
 import Foundation
 
-struct VerificationStatusEvent: Event {
-    var status: VerificationStatus
+public struct VerificationStatusEvent: Event {
+    public var status: VerificationStatus
 
-    enum VerificationStatus: Int {
+    public enum VerificationStatus: Int {
         case ACCEPTED = 0
         case REJECTED = 1
     }

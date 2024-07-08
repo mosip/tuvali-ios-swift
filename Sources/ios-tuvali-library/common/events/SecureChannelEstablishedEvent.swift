@@ -1,5 +1,5 @@
 import Foundation
 
-struct SecureChannelEstablishedEvent: Event {
+public struct SecureChannelEstablishedEvent: Event {
 }
 

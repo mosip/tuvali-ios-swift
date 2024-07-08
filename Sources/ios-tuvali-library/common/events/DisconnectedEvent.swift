@@ -1,5 +1,5 @@
 import Foundation
 
-struct DisconnectedEvent: Event {
+public struct DisconnectedEvent: Event {
 }
 

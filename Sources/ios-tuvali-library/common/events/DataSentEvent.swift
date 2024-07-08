@@ -1,5 +1,5 @@
 import Foundation
 
-struct DataSentEvent: Event {
+public struct DataSentEvent: Event {
 }
 

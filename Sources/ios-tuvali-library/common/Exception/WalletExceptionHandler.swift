@@ -9,7 +9,7 @@ class WalletExceptionHandler {
     }
 
     func handle(error: WalletErrorEnum) {
-        os_log(.error, "Error in OpenID4vBLE: %{public}@", error.description)
+       
         self.onError?(error.description, error.code)
     }
 }

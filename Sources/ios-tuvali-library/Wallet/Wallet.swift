@@ -1,7 +1,7 @@
 import Foundation
 import os
 public class Wallet: WalletProtocol {
-
+    @available(iOS 13.0, *)
     var bleCommunicator: WalletBleCommunicator?
 
     public init() {

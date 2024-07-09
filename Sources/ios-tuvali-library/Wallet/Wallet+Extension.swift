@@ -4,7 +4,7 @@ import CoreBluetooth
 protocol TransferHandlerDelegate: AnyObject {
     func write(serviceUuid: CBUUID, charUUID: CBUUID, data: Data, withResponse: Bool)
 }
-
+@available(iOS 13.0, *)
 extension WalletBleCommunicator: WalletBleCommunicatorProtocol {
 
     func onDisconnect() {
@@ -37,7 +37,7 @@ extension WalletBleCommunicator: WalletBleCommunicatorProtocol {
         createConnection?()
     }
 }
-
+@available(iOS 13.0, *)
 extension WalletBleCommunicator: TransferHandlerDelegate {
     func write(serviceUuid: CBUUID, charUUID: CBUUID, data: Data, withResponse: Bool) {
         if withResponse {

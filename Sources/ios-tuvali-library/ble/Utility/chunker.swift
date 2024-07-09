@@ -1,5 +1,5 @@
 import Foundation
-
+import os
 typealias ChunkSeqIndex = Int
 typealias ChunkSeqNumber = Int
 
@@ -109,7 +109,7 @@ class Chunker {
     func isComplete() -> Bool {
         let isComplete = chunksReadCounter >= totalChunkCount
         if isComplete {
-            os_log(.info, "isComplete: true, totalChunks: %{public}d , chunkReadCounter(1-indexed): %{public}d", totalChunkCount, chunksReadCounter)
+          //  os_log(.info, "isComplete: true, totalChunks: %{public}d , chunkReadCounter(1-indexed): %{public}d", totalChunkCount, chunksReadCounter)
         }
        return isComplete
     }

@@ -30,11 +30,10 @@ Currently the library doesnot support iOS as a verifier.But it can act as a wall
 The Wallet device scans the QR code, extracts the URI, and starts scanning using the `startConnection` method.
 
 ```swift
-@objc(WalletModule)
-class WalletModule: RCTEventEmitter {
+class Wallet:WalletProtocol {
   
-  @objc
-  func startConnection(_ uri: String, resolver: @escaping RCTPromiseResolveBlock, rejecter: @escaping RCTPromiseRejectBlock) {
+ 
+  func startConnection(_ uri: String) {
     // Implementation for starting the connection
   }
   ```
@@ -42,8 +41,7 @@ class WalletModule: RCTEventEmitter {
  The device on which app is running can destroy the connection by calling `disconnect` method:
 
  ```swift
- @objc
-  func disconnect(_ resolver: @escaping RCTPromiseResolveBlock, rejecter: @escaping RCTPromiseRejectBlock) {
+  func disconnect() {
     // Implementation for disconnecting
   }
   ```
@@ -51,8 +49,7 @@ class WalletModule: RCTEventEmitter {
 ### Share Data
 Once the connection is established, Wallet can send the data by:
 ```swift
-  @objc
-  func sendData(_ payload: String, resolver: @escaping RCTPromiseResolveBlock, rejecter: @escaping RCTPromiseRejectBlock) {
+  func sendData(_ payload: String) {
     // Implementation for sending data
   }
 }

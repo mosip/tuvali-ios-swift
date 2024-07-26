@@ -122,3 +122,4 @@ Events which are emitted by both Wallet and Verifier
 
 ## Note
 Currently, data transfer is supported from Wallet to Verifier only. Verifier functionalities are not available for iOS at the moment.
+

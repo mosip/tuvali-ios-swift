@@ -1,0 +1,27 @@
+name: Push trigger for swift-library
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - feature/**
+      - hotfix/**
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches:
+      - main
+      - develop
+      - feature/**
+      - hotfix/**
+
+jobs:
+  sonar_analysis:
+    uses: mosip/kattu/.github/workflows/swift-sonar-analysis.yml@master
+    if: "${{  github.event_name != 'pull_request' }}"
+    with:
+      SERVICE_LOCATION: '.'
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_ORGANIZATION: ${{ secrets.ORG_KEY }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_INJI_TEAM }}

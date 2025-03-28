@@ -4,8 +4,7 @@ import PackageDescription
 let package = Package(
     name: "ios-tuvali-library",
     platforms: [
-       .iOS(.v13),
-       .macOS(.v11)
+       .iOS(.v13)
     ],
     products: [
         .library(

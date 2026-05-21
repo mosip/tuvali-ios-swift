@@ -19,6 +19,8 @@ public class Wallet: WalletProtocol {
 
         bleCommunicator = WalletBleCommunicator()
         bleCommunicator?.setAdvIdentifier(identifier: advPayload)
+        bleCommunicator?.setVerifierPublicKey(publicKeyData: hexStringToData(string: openId4VpURI.getHexPK()!))
+        bleCommunicator?.setAdvName(openId4VpURI.getName())
         bleCommunicator?.startScanning()
         bleCommunicator?.createConnection = {
             EventEmitter.sharedInstance.emitEvent(ConnectedEvent())

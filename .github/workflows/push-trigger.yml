@@ -7,6 +7,7 @@ on:
       - develop
       - feature/**
       - hotfix/**
+      - release*
   pull_request:
     types: [opened, reopened, synchronize]
     branches:
@@ -14,10 +15,12 @@ on:
       - develop
       - feature/**
       - hotfix/**
+      - release*
+
 
 jobs:
   build-swift:
-    runs-on: macos-latest
+    runs-on: macos-14
     
     steps:
       - name: Checkout code
@@ -42,12 +45,12 @@ jobs:
         if: "${{ github.event_name != 'pull_request' && failure() }}"
 
   sonar_analysis:
-    uses: mosip/kattu/.github/workflows/swift-sonar-analysis.yml@develop
+    uses: mosip/kattu/.github/workflows/swift-sonar-analysis.yml@gpgupdate-masterj21
     if: "${{  github.event_name != 'pull_request' }}"
     with:
       SERVICE_LOCATION: '.'
       TEST_SCHEME: "ios-tuvali-libraryTests"
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SONAR_ORGANIZATION: ${{ secrets.ORG_KEY }}
+      ORG_KEY: ${{ secrets.ORG_KEY }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_INJI_TEAM }}

@@ -30,7 +30,7 @@ jobs:
         run: xcodebuild -scheme ios-tuvali-library -destination 'generic/platform=iOS' build
 
       - name: Run tests
-        run: xcodebuild test -scheme ios-tuvali-libraryTests -destination 'platform=iOS Simulator,OS=latest,name=iPhone 15'
+        run: xcodebuild test -scheme ios-tuvali-libraryTests -destination 'platform=iOS Simulator,OS=latest,name=iPhone 17'
 
       - name: Notify on Slack
         uses: 8398a7/action-slack@v3
@@ -49,5 +49,5 @@ jobs:
       TEST_SCHEME: "ios-tuvali-libraryTests"
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SONAR_ORGANIZATION: ${{ secrets.ORG_KEY }}
+      ORG_KEY: ${{ secrets.ORG_KEY }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_INJI_TEAM }}
